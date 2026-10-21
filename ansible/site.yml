@@ -1,0 +1,8 @@
+---
+- name: Approvisionner la VM garderie avec Docker
+  hosts: garderie
+  become: true
+  vars:
+    docker_user: vagrant
+  roles:
+    - docker
