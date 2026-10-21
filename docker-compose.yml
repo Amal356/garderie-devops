@@ -1,0 +1,28 @@
+services:
+  backend:
+    build: ./backend
+    image: amal878/garderie-backend:latest
+    container_name: garderie-backend
+    environment:
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    networks:
+      - garderie-net
+
+  frontend:
+    build: ./frontend
+    image: amal878/garderie-frontend:latest
+    container_name: garderie-frontend
+    environment:
+      - API_URL=http://backend:4000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - garderie-net
+
+networks:
+  garderie-net:
+    driver: bridge

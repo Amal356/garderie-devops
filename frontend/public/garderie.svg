@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Enfants qui jouent">
+  <rect width="400" height="300" rx="24" fill="#e0f4ff"/>
+  <circle cx="330" cy="60" r="32" fill="#ffd166"/>
+  <rect x="0" y="230" width="400" height="70" fill="#06d6a0"/>
+  <polygon points="70,140 150,80 230,140" fill="#ef476f"/>
+  <rect x="85" y="140" width="130" height="95" fill="#fff4e0"/>
+  <rect x="135" y="180" width="30" height="55" fill="#118ab2"/>
+  <rect x="100" y="155" width="25" height="25" fill="#9bd8ff"/>
+  <rect x="175" y="155" width="25" height="25" fill="#9bd8ff"/>
+  <circle cx="280" cy="185" r="14" fill="#f4a261"/>
+  <rect x="268" y="199" width="24" height="34" rx="8" fill="#ef476f"/>
+  <circle cx="330" cy="190" r="12" fill="#e9c46a"/>
+  <rect x="320" y="202" width="20" height="30" rx="8" fill="#118ab2"/>
+</svg>
