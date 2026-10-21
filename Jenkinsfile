@@ -16,8 +16,8 @@ pipeline {
 
         stage('Install') {
             steps {
-                dir('frontend') { sh 'npm ci' }
-                dir('backend')  { sh 'npm ci' }
+                dir('frontend') { sh 'npm ci --prefer-offline --no-audit --no-fund' }
+                dir('backend')  { sh 'npm ci --prefer-offline --no-audit --no-fund' }
             }
         }
 
