@@ -1,0 +1,31 @@
+---
+- name: Installer Docker Engine et le plugin Docker Compose
+  ansible.builtin.apt:
+    name:
+      - docker.io
+      - docker-compose-v2
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Démarrer et activer le service Docker
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Autoriser l'utilisateur de déploiement à exécuter Docker
+  ansible.builtin.user:
+    name: "{{ docker_user }}"
+    groups: docker
+    append: true
+  notify: Redémarrer Docker
+
+- name: Vérifier la version de Docker Compose
+  ansible.builtin.command: docker compose version
+  register: compose_version
+  changed_when: false
+
+- name: Afficher la version
+  ansible.builtin.debug:
+    msg: "{{ compose_version.stdout }}"

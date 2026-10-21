@@ -16,4 +16,17 @@ Vagrant.configure("2") do |config|
     vb.memory = 2048
     vb.cpus   = 2
   end
+
+  # Installe Ansible dans la VM (Ansible ne tourne pas sous Windows)
+  config.vm.provision "shell",
+    inline: "command -v ansible-playbook || (apt-get update && apt-get install -y ansible-core)"
+
+  # Provisioning : exécute le playbook site.yml (rôle docker) dans la VM
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.install           = false
+    ansible.provisioning_path = "/vagrant/ansible"
+    ansible.inventory_path    = "inventory.ini"
+    ansible.playbook          = "site.yml"
+    ansible.limit             = "all"
+  end
 end
